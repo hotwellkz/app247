@@ -1,0 +1,103 @@
+{
+  "77475000217@c.us": {
+    "phoneNumber": "77475000217@c.us",
+    "name": "77475000217@c.us",
+    "messages": [
+      {
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Отьл",
+        "timestamp": "2025-01-29T08:36:07.735Z",
+        "fromMe": false
+      },
+      {
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Ротл",
+        "timestamp": "2025-01-29T08:36:31.807Z",
+        "fromMe": false
+      },
+      {
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Гглл",
+        "timestamp": "2025-01-29T08:36:59.344Z",
+        "fromMe": false
+      },
+      {
+        "from": "me",
+        "to": "77475000217@c.us",
+        "body": "ikjj",
+        "timestamp": "2025-01-29T08:37:19.591Z",
+        "isGroup": false,
+        "fromMe": true
+      },
+      {
+        "from": "me",
+        "to": "77475000217@c.us",
+        "body": "kl",
+        "timestamp": "2025-01-29T08:37:47.844Z",
+        "isGroup": false,
+        "fromMe": true
+      },
+      {
+        "id": "3EB0A22FDB7D5EBABAAFFF",
+        "from": "me",
+        "to": "77475000217@c.us",
+        "body": "l;;;",
+        "timestamp": "2025-01-29T08:41:48.644Z",
+        "isGroup": false,
+        "fromMe": true
+      },
+      {
+        "id": "98B281AE39333F7BFAD561AA3E2DFEBE",
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Прол",
+        "timestamp": "2025-01-29T08:42:09.000Z",
+        "fromMe": false
+      },
+      {
+        "id": "3EB019157ED6D3F28EB7B8",
+        "from": "me",
+        "to": "77475000217@c.us",
+        "body": "sflk",
+        "timestamp": "2025-01-29T08:44:17.652Z",
+        "isGroup": false,
+        "fromMe": true
+      },
+      {
+        "id": "5108D35F0C38112F74638F62A5C979D0",
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Ргол",
+        "timestamp": "2025-01-29T08:44:36.000Z",
+        "fromMe": false
+      },
+      {
+        "id": "1BC5CF7419E4A3EC2AE6D2B2FC7D67AF",
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Ноол",
+        "timestamp": "2025-01-29T08:44:55.000Z",
+        "fromMe": false
+      },
+      {
+        "id": "344CF4F292CF2CF5FB135F22DD3D9A16",
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Ролд",
+        "timestamp": "2025-01-29T08:45:13.000Z",
+        "fromMe": false
+      }
+    ],
+    "lastMessage": {
+      "id": "344CF4F292CF2CF5FB135F22DD3D9A16",
+      "from": "77475000217@c.us",
+      "to": "77477991414@c.us",
+      "body": "Ролд",
+      "timestamp": "2025-01-29T08:45:13.000Z",
+      "fromMe": false
+    }
+  }
+}
