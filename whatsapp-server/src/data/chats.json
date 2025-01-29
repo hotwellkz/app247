@@ -155,14 +155,22 @@
         "body": "Голл",
         "timestamp": "2025-01-29T10:47:28.000Z",
         "fromMe": false
+      },
+      {
+        "id": "EF305929EE2392D2A09DE182917CF1A8",
+        "from": "77475000217@c.us",
+        "to": "77477991414@c.us",
+        "body": "Ролл",
+        "timestamp": "2025-01-29T10:56:33.000Z",
+        "fromMe": false
       }
     ],
     "lastMessage": {
-      "id": "7B854581B9EB6B8BBB4CA47403051B23",
+      "id": "EF305929EE2392D2A09DE182917CF1A8",
       "from": "77475000217@c.us",
       "to": "77477991414@c.us",
-      "body": "Голл",
-      "timestamp": "2025-01-29T10:47:28.000Z",
+      "body": "Ролл",
+      "timestamp": "2025-01-29T10:56:33.000Z",
       "fromMe": false
     }
   },
