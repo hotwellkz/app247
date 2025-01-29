@@ -77,7 +77,7 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
     };
 
     useEffect(() => {
-        const newSocket = io('http://localhost:3000', {
+        const newSocket = io(serverUrl || 'http://localhost:3000', {
             withCredentials: true
         });
 

@@ -243,5 +243,35 @@
       "timestamp": "2025-01-29T10:40:41.000Z",
       "fromMe": false
     }
+  },
+  "77072808968-1615535758@g.us": {
+    "phoneNumber": "77072808968-1615535758@g.us",
+    "name": "77072808968-1615535758@g.us",
+    "messages": [
+      {
+        "id": "3A84FEFFADB5D31E594E",
+        "from": "77072808968-1615535758@g.us",
+        "to": "77477991414@c.us",
+        "body": "",
+        "timestamp": "2025-01-29T11:11:00.000Z",
+        "fromMe": false
+      },
+      {
+        "id": "3A8FED94502D94554446",
+        "from": "77072808968-1615535758@g.us",
+        "to": "77477991414@c.us",
+        "body": "‎Перейдите по ссылке, чтобы вступить в моё сообщество в WhatsApp: https://chat.whatsapp.com/DuQncOoFuMJ8LA851Fos26",
+        "timestamp": "2025-01-29T11:15:06.000Z",
+        "fromMe": false
+      }
+    ],
+    "lastMessage": {
+      "id": "3A8FED94502D94554446",
+      "from": "77072808968-1615535758@g.us",
+      "to": "77477991414@c.us",
+      "body": "‎Перейдите по ссылке, чтобы вступить в моё сообщество в WhatsApp: https://chat.whatsapp.com/DuQncOoFuMJ8LA851Fos26",
+      "timestamp": "2025-01-29T11:15:06.000Z",
+      "fromMe": false
+    }
   }
 }

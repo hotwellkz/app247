@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: whatsapp-web-server
+    env: docker
+    dockerfilePath: ./Dockerfile
+    buildCommand: npm install && npm run build:server
+    startCommand: npm run start:server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CLIENT_URL
+        value: https://your-frontend-url.onrender.com # Замените на URL вашего фронтенда
+    autoDeploy: true
