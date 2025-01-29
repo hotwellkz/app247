@@ -38,7 +38,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
 
     const loadChats = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/chats');
+            const response = await axios.get('https://ws004-8xd9.onrender.com/chats');
             const loadedChats = response.data;
             setChats(loadedChats);
         } catch (error) {

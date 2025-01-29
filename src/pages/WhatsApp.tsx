@@ -24,7 +24,7 @@ const WhatsApp: React.FC = () => {
                     </div>
                 </div>
 
-                <WhatsAppConnect serverUrl={import.meta.env.VITE_SERVER_URL || 'http://localhost:3000'} />
+                <WhatsAppConnect serverUrl="https://ws004-8xd9.onrender.com" />
 
                 {/* Модальное окно с QR-кодом */}
                 {showQRCode && (

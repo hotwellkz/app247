@@ -77,7 +77,7 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
     };
 
     useEffect(() => {
-        const newSocket = io(serverUrl || 'http://localhost:3000', {
+        const newSocket = io(serverUrl, {
             withCredentials: true
         });
 
@@ -146,7 +146,7 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
         setSocket(newSocket);
 
         // Загружаем историю чатов при подключении
-        fetch('http://localhost:3000/chats', {
+        fetch(`${serverUrl}/chats`, {
             credentials: 'include'
         })
             .then(response => response.json())
@@ -167,7 +167,7 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
         if (!activeChat || !message) return;
 
         try {
-            const response = await fetch('http://localhost:3000/send-message', {
+            const response = await fetch(`${serverUrl}/send-message`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
