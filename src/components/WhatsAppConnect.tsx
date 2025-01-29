@@ -12,6 +12,7 @@ interface Chat {
     name: string;
     lastMessage?: WhatsAppMessage;
     messages: WhatsAppMessage[];
+    unreadCount: number;
 }
 
 const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
@@ -24,6 +25,11 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
     const [activeChat, setActiveChat] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
 
+    // Функция для форматирования номера телефона
+    const formatPhoneNumber = (phoneNumber: string) => {
+        return phoneNumber.replace(/@[a-z.]+$/i, '');
+    };
+
     // Функция для добавления сообщения в чат
     const addMessageToChat = (message: WhatsAppMessage) => {
         const phoneNumber = message.fromMe ? message.to! : message.from;
@@ -33,12 +39,12 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
             if (!updatedChats[phoneNumber]) {
                 updatedChats[phoneNumber] = {
                     phoneNumber,
-                    name: message.sender || phoneNumber,
-                    messages: []
+                    name: message.sender || formatPhoneNumber(phoneNumber),
+                    messages: [],
+                    unreadCount: 0
                 };
             }
 
-            // Проверяем, нет ли уже такого сообщения
             const messageExists = updatedChats[phoneNumber].messages.some(
                 existingMsg => 
                     existingMsg.body === message.body && 
@@ -49,10 +55,25 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
             if (!messageExists) {
                 updatedChats[phoneNumber].messages = [...updatedChats[phoneNumber].messages, message];
                 updatedChats[phoneNumber].lastMessage = message;
+                // Увеличиваем счетчик непрочитанных сообщений только для входящих сообщений
+                if (!message.fromMe) {
+                    updatedChats[phoneNumber].unreadCount += 1;
+                }
             }
 
             return updatedChats;
         });
+    };
+
+    // Функция для сброса счетчика непрочитанных сообщений
+    const resetUnreadCount = (phoneNumber: string) => {
+        setChats(prevChats => ({
+            ...prevChats,
+            [phoneNumber]: {
+                ...prevChats[phoneNumber],
+                unreadCount: 0
+            }
+        }));
     };
 
     useEffect(() => {
@@ -216,7 +237,10 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
                             className={`flex items-center px-4 py-3 cursor-pointer hover:bg-[#f0f2f5] ${
                                 activeChat === chat.phoneNumber ? 'bg-[#f0f2f5]' : ''
                             }`}
-                            onClick={() => setActiveChat(chat.phoneNumber)}
+                            onClick={() => {
+                                setActiveChat(chat.phoneNumber);
+                                resetUnreadCount(chat.phoneNumber);
+                            }}
                         >
                             <div className="w-12 h-12 rounded-full bg-gray-300 flex-shrink-0 flex items-center justify-center">
                                 <span className="text-gray-600">
@@ -226,13 +250,20 @@ const WhatsAppConnect: React.FC<WhatsAppConnectProps> = ({ serverUrl }) => {
                             <div className="ml-4 flex-1 min-w-0">
                                 <div className="flex justify-between items-baseline">
                                     <h3 className="text-base font-medium text-gray-900 truncate">
-                                        {chat.name}
+                                        {formatPhoneNumber(chat.phoneNumber)}
                                     </h3>
-                                    {chat.lastMessage && (
-                                        <span className="text-xs text-gray-500">
-                                            {new Date(chat.lastMessage.timestamp).toLocaleTimeString()}
-                                        </span>
-                                    )}
+                                    <div className="flex items-center">
+                                        {chat.unreadCount > 0 && (
+                                            <span className="bg-green-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs mr-2">
+                                                {chat.unreadCount}
+                                            </span>
+                                        )}
+                                        {chat.lastMessage && (
+                                            <span className="text-xs text-gray-500">
+                                                {new Date(chat.lastMessage.timestamp).toLocaleTimeString()}
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
                                 {chat.lastMessage && (
                                     <p className="text-sm text-gray-500 truncate">
