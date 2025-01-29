@@ -10,14 +10,17 @@ const WhatsApp: React.FC = () => {
     return (
         <ChatProvider>
             <div className="h-screen bg-[#f0f2f5] relative">
-                {/* Верхняя панель с иконкой QR-кода */}
-                <div className="w-full bg-[#00a884] px-4 py-2 flex justify-end items-center">
-                    <div 
-                        className="cursor-pointer flex items-center gap-2 text-white"
-                        onClick={() => setShowQRCode(true)}
-                    >
-                        <MdQrCode2 className="w-6 h-6" />
-                        <span className="text-sm">Сканировать QR-код</span>
+                {/* Верхняя панель */}
+                <div className="w-full bg-[#00a884] px-4 py-2 flex justify-between items-center">
+                    <div className="flex items-center gap-4">
+                        <span className="text-white">Подключено к серверу</span>
+                        <div 
+                            className="cursor-pointer flex items-center gap-2 text-white"
+                            onClick={() => setShowQRCode(true)}
+                        >
+                            <MdQrCode2 className="w-6 h-6" />
+                            <span className="text-sm">Сканировать QR-код</span>
+                        </div>
                     </div>
                 </div>
 
