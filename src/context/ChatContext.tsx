@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import axios from 'axios';
 import { WhatsAppMessage } from '../types/WhatsAppTypes';
 
@@ -36,19 +36,21 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     const [activeChat, setActiveChat] = useState<string | null>(null);
     const [qrCode, setQrCode] = useState<string>('');
 
-    const loadChats = async () => {
+    const loadChats = useCallback(async () => {
         try {
-            const response = await axios.get('https://ws004-8xd9.onrender.com/chats');
-            const loadedChats = response.data;
+            const response = await fetch(`${import.meta.env.VITE_SERVER_URL || 'https://whatsapp-web-server.onrender.com'}/chats`, {
+                credentials: 'include'
+            });
+            const loadedChats = await response.json();
             setChats(loadedChats);
         } catch (error) {
             console.error('Error loading chats:', error);
         }
-    };
+    }, []);
 
     useEffect(() => {
         loadChats();
-    }, []);
+    }, [loadChats]);
 
     return (
         <ChatContext.Provider value={{ chats, setChats, activeChat, setActiveChat, loadChats, qrCode, setQrCode }}>

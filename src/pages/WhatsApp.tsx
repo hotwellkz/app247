@@ -4,6 +4,8 @@ import WhatsAppQRCode from '../components/WhatsAppQRCode';
 import { ChatProvider } from '../context/ChatContext';
 import { MdQrCode2 } from 'react-icons/md';
 
+const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'https://whatsapp-web-server.onrender.com';
+
 const WhatsApp: React.FC = () => {
     const [showQRCode, setShowQRCode] = useState(false);
 
@@ -24,7 +26,7 @@ const WhatsApp: React.FC = () => {
                     </div>
                 </div>
 
-                <WhatsAppConnect serverUrl="https://ws004-8xd9.onrender.com" />
+                <WhatsAppConnect serverUrl={SERVER_URL} />
 
                 {/* Модальное окно с QR-кодом */}
                 {showQRCode && (
